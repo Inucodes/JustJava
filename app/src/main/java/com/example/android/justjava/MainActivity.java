@@ -99,7 +99,9 @@ Method called when the + button is clicked
 */
 
     public void increment(View view) {
+
         quantity = quantity + 1;
+
         displayQuantity(quantity);
 
     }
@@ -109,7 +111,9 @@ Method called when the - button is clicked
 */
 
     public void decrement(View view) {
+
         quantity = quantity - 1;
+
         displayQuantity(quantity);
 
     }
