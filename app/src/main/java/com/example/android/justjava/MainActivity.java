@@ -168,7 +168,6 @@ Method displays given quantity value on the screen
     }
 
 
-
  /*
 Method displays current price on the screen
 */              
