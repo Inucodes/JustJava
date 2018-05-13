@@ -97,23 +97,6 @@
 
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/header_price_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Price"
-                android:textAllCaps="true" />
-
-            <TextView
-                android:id="@+id/price_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Total: $5"
-                android:textColor="@android:color/black"
-                android:textSize="16sp" />
-
             <Button
                 android:id="@+id/button_order"
                 android:layout_width="wrap_content"
