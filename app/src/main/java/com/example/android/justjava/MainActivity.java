@@ -23,9 +23,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-//Method to check if this checkbox is checked!
-
-
 
 /*
 Method called when the Order button is clicked
