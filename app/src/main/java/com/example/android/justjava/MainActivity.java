@@ -18,7 +18,6 @@ public class MainActivity extends AppCompatActivity {
     int quantity = 1; // declaring the quantity of coffee
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,20 +43,21 @@ Method called when the Order button is clicked
         CheckBox chocolateCheckBox = (CheckBox) findViewById(R.id.chocolate_check_box);
         boolean addChocolate = chocolateCheckBox.isChecked();
 
-        int price = calculatePrice(creamCheckBoxState,addChocolate);
+        int price = calculatePrice(creamCheckBoxState, addChocolate);
 
-        displayMessage(createOrderSummary(price, creamCheckBoxState, addChocolate, SelectedName), SelectedName );
-        
-    
-         }
+        displayMessage(createOrderSummary(price, creamCheckBoxState, addChocolate, SelectedName), SelectedName);
+
+
+    }
+
     /**
-     *Method creates a summary of the order information and returns the text summary
-     * @param SelectedName of the customer
-     * @param addChocolate or not?
-     * @param creamCheckBoxState with cream or not?
-     * @param price calculated total price
-     * @return text summary of the order
+     * Method creates a summary of the order information and returns the text summary
      *
+     * @param SelectedName       of the customer
+     * @param addChocolate       or not?
+     * @param creamCheckBoxState with cream or not?
+     * @param price              calculated total price
+     * @return text summary of the order
      */
 
     private String createOrderSummary(int price, boolean creamCheckBoxState, boolean addChocolate, String SelectedName) {
@@ -74,8 +74,9 @@ Method called when the Order button is clicked
 
     /**
      * Method calculates the price of the order based on quantity
+     *
      * @param creamCheckBoxState with cream or not?
-     * @param addChocolate or not?
+     * @param addChocolate       or not?
      **/
 
 
@@ -83,12 +84,12 @@ Method called when the Order button is clicked
 
         int basePrice = 5;
 
-        if(creamCheckBoxState) {
+        if (creamCheckBoxState) {
 
             basePrice = basePrice + 1;
         }
 
-        if(addChocolate) {
+        if (addChocolate) {
 
             basePrice = basePrice + 2;
         }
@@ -115,9 +116,7 @@ Method called when the + button is clicked
                     "You can not order more than 100 coffees", Toast.LENGTH_SHORT).show();
 
             return;
-        }
-
-        else {
+        } else {
 
             quantity = quantity + 1;
 
@@ -140,9 +139,7 @@ Method called when the - button is clicked
                     "You can not order less than 1 coffee", Toast.LENGTH_SHORT).show();
 
             return;
-        }
-
-        else {
+        } else {
 
             quantity = quantity - 1;
 
@@ -151,7 +148,6 @@ Method called when the - button is clicked
 
 
         }
-
 
 
     }
@@ -163,30 +159,30 @@ Method displays given quantity value on the screen
     private void displayQuantity(int number) {
 
         TextView quantityTextView = (TextView) findViewById(R.id.quantity_text_view);
-        quantityTextView.setText(""+ number);
+        quantityTextView.setText("" + number);
 
     }
 
 
  /*
 Method displays current price on the screen
-*/              
+*/
 
 
-private void displayPrice() {
+    private void displayPrice() {
 
-    CheckBox creamCheckBox = (CheckBox) findViewById(R.id.whipped_cream_check_box);
-    boolean creamCheckBoxState = creamCheckBox.isChecked();
+        CheckBox creamCheckBox = (CheckBox) findViewById(R.id.whipped_cream_check_box);
+        boolean creamCheckBoxState = creamCheckBox.isChecked();
 
-    CheckBox chocolateCheckBox = (CheckBox) findViewById(R.id.chocolate_check_box);
-    boolean addChocolate = chocolateCheckBox.isChecked();
+        CheckBox chocolateCheckBox = (CheckBox) findViewById(R.id.chocolate_check_box);
+        boolean addChocolate = chocolateCheckBox.isChecked();
 
-    int price = calculatePrice(creamCheckBoxState,addChocolate);
+        int price = calculatePrice(creamCheckBoxState, addChocolate);
 
-TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
-priceTextView.setText("Total: $" + price);
+        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
+        priceTextView.setText("Total: $" + price);
 
-}
+    }
 
 
 
@@ -195,24 +191,20 @@ priceTextView.setText("Total: $" + price);
 Method displays price on the screen
 */
 
-   private void displayMessage(String message, String SelectedName) {
+    private void displayMessage(String message, String SelectedName) {
 
 
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:address@justjava.com")); // only email apps should handle this
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Just java order for " + SelectedName);
+        intent.putExtra(Intent.EXTRA_TEXT, message);
 
-           Intent intent = new Intent(Intent.ACTION_SENDTO);
-           intent.setData(Uri.parse("mailto:address@justjava.com")); // only email apps should handle this
-           intent.putExtra(Intent.EXTRA_SUBJECT, "Just java order for " + SelectedName);
-           intent.putExtra(Intent.EXTRA_TEXT, message);
-
-           if (intent.resolveActivity(getPackageManager()) != null) {
-               startActivity(intent);
-           }
-
-
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
 
 
     }
-
 
 
 }
