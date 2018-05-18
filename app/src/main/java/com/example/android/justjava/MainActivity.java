@@ -10,6 +10,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.NumberFormat;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -43,8 +45,8 @@ Method called when the Order button is clicked
         String priceMessage = createOrderSummary(price, creamCheckBoxState, addChocolate, SelectedName);
 
         Intent intent = new Intent(Intent.ACTION_SENDTO);
-        intent.setData(Uri.parse("mailto:address@justjava.com")); // only email apps should handle this
-        intent.putExtra(Intent.EXTRA_SUBJECT, "Just java order for " + SelectedName);
+        intent.setData(Uri.parse(getString(R.string.email))); // only email apps should handle this
+        intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.email_subject) + SelectedName);
         intent.putExtra(Intent.EXTRA_TEXT, priceMessage);
 
         if (intent.resolveActivity(getPackageManager()) != null) {
@@ -66,12 +68,12 @@ Method called when the Order button is clicked
 
     private String createOrderSummary(int price, boolean creamCheckBoxState, boolean addChocolate, String SelectedName) {
 
-        String priceMessage = "Name: " + SelectedName;
-        priceMessage = priceMessage + "\nAdd whipped cream? " + creamCheckBoxState;
-        priceMessage += "\nAdd chocolate? " + addChocolate;
-        priceMessage = priceMessage + "\nQuantity: " + quantity;
-        priceMessage += "\nTotal: $" + price;
-        priceMessage = priceMessage + "\nThank you!";
+        String priceMessage = getString(R.string.name) + SelectedName;
+        priceMessage = priceMessage + getString(R.string.add_cream) + creamCheckBoxState;
+        priceMessage += getString(R.string.add_chocolate) + addChocolate;
+        priceMessage = priceMessage + getString(R.string.quantity) + quantity;
+        priceMessage += getString(R.string.total) + NumberFormat.getCurrencyInstance().format(price);
+        priceMessage = priceMessage + getString(R.string.thank_you);
         return priceMessage;
 
     }
@@ -117,9 +119,10 @@ Method called when the + button is clicked
 
         {
             Toast.makeText(this,
-                    "You can not order more than 100 coffees", Toast.LENGTH_SHORT).show();
+                    getString(R.string.no_more100), Toast.LENGTH_SHORT).show();
 
             return;
+
         } else {
 
             quantity = quantity + 1;
@@ -140,9 +143,10 @@ Method called when the - button is clicked
         // shows an error when you try to have less than 1 coffee
         {
             Toast.makeText(this,
-                    "You can not order less than 1 coffee", Toast.LENGTH_SHORT).show();
+                    getString(R.string.no_less1), Toast.LENGTH_SHORT).show();
 
             return;
+
         } else {
 
             quantity = quantity - 1;

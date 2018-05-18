@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">JustJava</string>
+    <string name="email">mailto:address@justjava.com</string>
+    <string name="email_subject">Just java zamówienie dla \</string>
+    <string name="name">Imię: \</string>
+    <string name="no_more100">Nie możesz zamówić więcej niż 100 kaw</string>
+    <string name="no_less1">Nie możesz zamówić mniej niż 1 kawę</string>
+    <string name="hint_name">Imię</string>
+    <string name="toppings">Dodatki</string>
+    <string name="whipped_cream">Bita Śmietana</string>
+    <string name="chocolate">Czekolada</string>
+    <string name="quantity_header">Ilość</string>
+    <string name="order">Zamówienie</string>
+    <string name="thank_you">\nDziękujemy!</string>
+    <string name="total">\nRazem: \</string>
+    <string name="quantity">\nIlość: \</string>
+    <string name="add_chocolate">\nDodać czekolady? \</string>
+    <string name="add_cream">\nDodać bitej śmietany? \</string>
+</resources>

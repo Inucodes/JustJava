@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">JustJava</string>
+    <string name="email">mailto:address@justjava.com</string>
+    <string name="email_subject">Just java order for \</string>
+    <string name="name">Name: \</string>
+    <string name="thank_you">\nThank you!</string>
+    <string name="total">\nTotal: \</string>
+    <string name="quantity">\nQuantity: \</string>
+    <string name="add_chocolate">\nAdd chocolate? \</string>
+    <string name="add_cream">\nAdd whipped cream? \</string>
+    <string name="no_more100">\You can not order more than 100 coffees\</string>
+    <string name="no_less1">\You can not order less than 1 coffee\</string>
+    <string name="hint_name">Name</string>
+    <string name="toppings">Toppings</string>
+    <string name="whipped_cream">Whipped Cream</string>
+    <string name="chocolate">Chocolate</string>
+    <string name="quantity_header">Quantity</string>
+    <string name="def_1">1</string>
+    <string name="plus">+</string>
+    <string name="minus">-</string>
+    <string name="order">Order</string>
 </resources>
